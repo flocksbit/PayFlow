@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "129821684900",
+    "project_id": "pay-flow-b572e",
+    "storage_bucket": "pay-flow-b572e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129821684900:android:8fd9569de70401ea406231",
+        "android_client_info": {
+          "package_name": "br.com.monteiro.payflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129821684900-8u02p31rg3h9sqfbp30vkukcfqal51lb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.monteiro.payflow",
+            "certificate_hash": "4a188e10e098e64ab1eba57b6917c8ace605d780"
+          }
+        },
+        {
+          "client_id": "129821684900-ofi7rjffk4sg4gbolrq9qggpqaptjejq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDiOIWvDx0z7Le3SK69TbTISmaYlpx1IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129821684900-ofi7rjffk4sg4gbolrq9qggpqaptjejq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
