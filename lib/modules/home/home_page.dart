@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '/shared/themes/app_colors.dart';
-import '/shared/themes/app_text_styles.dart';
-import '/modules/home/home_controller.dart';
+import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/shared/themes/app_colors.dart';
+import 'package:payflow/shared/themes/app_text_styles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,8 +13,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final controller = HomeController();
   final pages = [
-    Container(color: Colors.red),
-    Container(color: Colors.green),
+    Container(
+      color: Colors.red,
+    ),
+    Container(color: Colors.blue),
   ];
   @override
   Widget build(BuildContext context) {
@@ -27,21 +28,23 @@ class _HomePageState extends State<HomePage> {
           color: AppColors.primary,
           child: Center(
             child: ListTile(
-              title: Text.rich(TextSpan(
-                  text: 'Olá',
-                  style: TextStyles.titleRegular,
-                  children: [
-                    TextSpan(
-                        text: 'Matheus Artur',
-                        style: TextStyles.titleBoldBackground),
-                  ])),
+              title: Text.rich(
+                TextSpan(
+                    text: "Olá, ",
+                    style: TextStyles.titleRegular,
+                    children: [
+                      TextSpan(
+                          text: "Matheus Monteiro",
+                          style: TextStyles.titleBoldBackground)
+                    ]),
+              ),
               subtitle: Text(
-                'Mantenha suas contas em dia!',
+                "Mantenha suas contas em dia",
                 style: TextStyles.captionShape,
               ),
               trailing: Container(
-                width: 40,
-                height: 40,
+                height: 48,
+                width: 48,
                 decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(5)),
@@ -66,7 +69,9 @@ class _HomePageState extends State<HomePage> {
                   color: AppColors.primary,
                 )),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, "/barcode_scanner");
+              },
               child: Container(
                 width: 56,
                 height: 56,
@@ -87,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(
                   Icons.description_outlined,
                   color: AppColors.body,
-                )),
+                ))
           ],
         ),
       ),
