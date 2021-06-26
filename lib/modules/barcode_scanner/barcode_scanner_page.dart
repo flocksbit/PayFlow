@@ -22,7 +22,8 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
     controller.getAvailableCameras();
     controller.statusNotifier.addListener(() {
       if (controller.status.hasBarcode) {
-        Navigator.pushReplacementNamed(context, "/insert_boleto");
+        Navigator.pushReplacementNamed(context, "/inserir_boleto",
+            arguments: controller.status.barcode);
       }
     });
 
@@ -50,7 +51,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 if (status.showCamera) {
                   return Container(
                     color: Colors.blue,
-                    child: status.cameraController!.buildPreview(),
+                    child: controller.cameraController!.buildPreview(),
                   );
                 } else {
                   return Container();
@@ -94,7 +95,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 bottomNavigationBar: SetLabelButton(
                   primaryLabel: "Inserir código do boleto",
                   primaryOnPressed: () {
-                    controller.status = BarcodeScannerStatus.error("Error");
+                    Navigator.pushReplacementNamed(context, "/inserir_boleto");
                   },
                   secondaryLabel: "Adicionar da galeria",
                   secondaryOnPressed: controller.scanWithImagePicker,
@@ -109,10 +110,13 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                       child: BottomSheetWidget(
                           primaryLabel: "Escanear novamente",
                           primaryOnPressed: () {
-                            controller.getAvailableCameras();
+                            controller.scanWithCamera();
                           },
                           secondaryLabel: "Digitar código",
-                          secondaryOnPressed: () {},
+                          secondaryOnPressed: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/inserir_boleto');
+                          },
                           title:
                               "Não foi possível identificar um código de barras.",
                           subTitle:
